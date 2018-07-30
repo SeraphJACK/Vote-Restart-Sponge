@@ -1,4 +1,7 @@
-repositories {  
+repositories {
+	jcenter() {
+			url = 'http://jcenter.bintray.com/'
+	}
     maven {
 		url = 'https://repository.jboss.org/nexus/content/groups/public/'
 	}
