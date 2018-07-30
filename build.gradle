@@ -1,8 +1,18 @@
-plugins {
-    id 'org.spongepowered.plugin' version '0.8.1'
+repositories {  
+    maven {
+		url = 'https://repository.jboss.org/nexus/content/groups/public/'
+	}
+    maven {
+        name = 'sponge'
+        url = 'http://repo.spongepowered.org/maven'
+    }
 }
 
+apply plugin: 'java'
 apply plugin: 'idea'
+
+sourceCompatibility = '1.8'  
+targetCompatibility = '1.8'
 
 group = 'top.seraphjack.voterestart'
 version = '0.0.1-SNAPSHOT'
