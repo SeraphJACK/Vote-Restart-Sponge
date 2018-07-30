@@ -1,0 +1,15 @@
+plugins {
+    id 'org.spongepowered.plugin' version '0.8.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+group = 'top.seraphjack.voterestart'
+version = '0.0.1-SNAPSHOT'
+description = 'Vote-Restart plugin version.'
+
+dependencies {
+    compile 'org.spongepowered:spongeapi:7.0.0'
+}
