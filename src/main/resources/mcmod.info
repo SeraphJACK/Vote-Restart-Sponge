@@ -1,0 +1,16 @@
+[
+{
+  "modid": "voterestart",
+  "name": "Vote Restart",
+  "description": "Vote for restart",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["SeraphJACK"],
+  "credits": "3TUSK",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
