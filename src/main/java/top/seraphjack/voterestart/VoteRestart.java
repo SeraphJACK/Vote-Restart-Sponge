@@ -9,7 +9,7 @@ import org.spongepowered.api.plugin.Plugin;
 import java.io.IOException;
 import java.nio.file.Path;
 
-@Plugin(id = VoteRestart.ID, name = "Vote Restart", version = "0.0.1-SNAPSHOT", description = "Vote-Restart plugin version.")
+@Plugin(id = VoteRestart.ID, name = "Vote Restart", version = "0.0.2-SNAPSHOT", description = "Vote-Restart plugin version.")
 public class VoteRestart {
     public static final String ID = "voterestart";
     public static RestartManager VOTE_MANAGER;
