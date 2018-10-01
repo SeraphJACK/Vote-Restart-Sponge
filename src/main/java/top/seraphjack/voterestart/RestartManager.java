@@ -54,26 +54,28 @@ public class RestartManager {
 
     private void update() {
         if (voters.size() >= Sponge.getGame().getServer().getOnlinePlayers().size() * ConfigLoader.votePercentage) {
-            restarting = true;
-            new Thread(() -> {
-                // Behold, long arrow in Java!
-                for (int i = 10; i-->0; ) {
-                    if (!restarting) {
-                        broadcast("[VoteRestart] Restart canceled");
-                        return;
+            if (!restarting) {
+                restarting = true;
+                new Thread(() -> {
+                    // Behold, long arrow in Java!
+                    for (int i = 10; i-->0; ) {
+                        if (!restarting) {
+                            broadcast("[VoteRestart] Restart canceled");
+                            return;
+                        }
+                        final int I = i + 1;
+                        broadcast("[VoteRestart] Server restart in " + I + " secs");
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
-                    final int I = i + 1;
-                    broadcast("[VoteRestart] Server restart in " + I + " secs");
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                Sponge.getScheduler().createTaskBuilder()
-                        .execute(() -> Sponge.getServer().shutdown(Text.of("Server restarting, please wait...")))
-                        .submit(VoteRestart.INSTANCE);
-            }).start();
+                    Sponge.getScheduler().createTaskBuilder()
+                            .execute(() -> Sponge.getServer().shutdown(Text.of("Server restarting, please wait...")))
+                            .submit(VoteRestart.INSTANCE);
+                }).start();
+            }
         } else {
             restarting = false;
         }
