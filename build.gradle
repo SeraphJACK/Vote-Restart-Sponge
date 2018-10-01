@@ -18,8 +18,12 @@ sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 group = 'top.seraphjack.voterestart'
-version = '0.0.2-SNAPSHOT'
+version = '0.0.3-stable'
 description = 'Vote-Restart plugin version.'
+
+if (System.getenv("BUILD_NUMBER") != null) {
+    version += "-build${System.getenv("BUILD_NUMBER")}"
+}
 
 dependencies {
     compile 'org.spongepowered:spongeapi:7.0.0'
