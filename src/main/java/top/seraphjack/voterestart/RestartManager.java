@@ -60,11 +60,11 @@ public class RestartManager {
                     // Behold, long arrow in Java!
                     for (int i = 10; i-->0; ) {
                         if (!restarting) {
-                            broadcast("[VoteRestart] Restart canceled");
+                            broadcast(Text.builder("[VoteRestart] Restart canceled").color(TextColors.GOLD).build());
                             return;
                         }
                         final int I = i + 1;
-                        broadcast("[VoteRestart] Server restart in " + I + " secs");
+                        broadcast(Text.builder("[VoteRestart] Server restart in " + I + " secs").color(TextColors.GOLD).build());
                         try {
                             Thread.sleep(1000);
                         } catch (InterruptedException e) {
@@ -79,10 +79,6 @@ public class RestartManager {
         } else {
             restarting = false;
         }
-    }
-
-    private void broadcast(String text) {
-        broadcast(Text.of(text));
     }
 
     private void broadcast(Text text) {
