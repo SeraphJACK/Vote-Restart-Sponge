@@ -10,6 +10,10 @@ import java.io.IOException;
 public class ConfigLoader {
     public static float votePercentage;
 
+    /**
+     * Load Configuration
+     * @throws IOException Config loading may cause IOException
+     */
     public ConfigLoader() throws IOException {
         ConfigurationLoader<CommentedConfigurationNode> loader = HoconConfigurationLoader.builder().setPath(VoteRestart.INSTANCE.cfgPath).build();
         ConfigurationNode root = loader.load();

@@ -11,6 +11,9 @@ public class CommandLoader {
     public static CommandSpec COMMAND_VOTE;
     public static CommandSpec COMMAND_DEVOTE;
 
+    /**
+     * Load commands
+     */
     CommandLoader() {
         COMMAND_VOTE = CommandSpec.builder()
                 .description(Text.of("Vote to restart"))

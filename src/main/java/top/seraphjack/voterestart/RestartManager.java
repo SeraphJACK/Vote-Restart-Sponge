@@ -16,6 +16,12 @@ public class RestartManager {
         voters = new HashSet<>();
     }
 
+    /**
+     * Mark a player want to restart the server
+     *
+     * @param p the player
+     * @return success
+     */
     public boolean vote(Player p) {
         UUID uuid = p.getUniqueId();
         if (voters.contains(uuid)) return false;
@@ -28,11 +34,17 @@ public class RestartManager {
                                 + '(' + ((int) (double) voters.size() / (double) Sponge.getServer().getOnlinePlayers().size() * 100) + "%)")
                                 .color(TextColors.GOLD)
                                 .build()
-                )
-                        .build());
+                ).build()
+        );
         return true;
     }
 
+    /**
+     * Mark a player want to cancel the vote
+     *
+     * @param p the player
+     * @return success
+     */
     public boolean deVote(Player p) {
         UUID uuid = p.getUniqueId();
         if (voters.contains(uuid)) {
@@ -45,8 +57,8 @@ public class RestartManager {
                                     + '(' + ((int) (double) voters.size() / (double) Sponge.getServer().getOnlinePlayers().size() * 100) + "%)")
                                     .color(TextColors.GOLD)
                                     .build()
-                    )
-                            .build());
+                    ).build()
+            );
             return true;
         }
         return false;
@@ -58,7 +70,7 @@ public class RestartManager {
                 restarting = true;
                 new Thread(() -> {
                     // Behold, long arrow in Java!
-                    for (int i = 10; i-->0; ) {
+                    for (int i = 10; i--> 0; ) {
                         if (!restarting) {
                             broadcast(Text.builder("[VoteRestart] Restart canceled").color(TextColors.GOLD).build());
                             return;
