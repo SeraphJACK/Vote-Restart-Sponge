@@ -16,5 +16,5 @@ or:
 ```bash
 while true; do
     java -jar minecraft_server.jar
-end
+done
 ```
