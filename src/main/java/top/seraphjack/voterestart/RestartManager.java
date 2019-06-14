@@ -28,7 +28,7 @@ public class RestartManager {
         voters.add(uuid);
         update();
         broadcast(
-                Text.builder(p.getDisplayNameData().displayName().toString()).append(
+                Text.builder().append(p.getDisplayNameData().displayName().get()).append(
                         Text.builder(" is now voting to restart. "
                                 + voters.size() + '/' + Sponge.getServer().getOnlinePlayers().size()
                                 + '(' + ((int) (double) voters.size() / (double) Sponge.getServer().getOnlinePlayers().size() * 100) + "%)")
@@ -51,7 +51,7 @@ public class RestartManager {
             voters.remove(uuid);
             update();
             broadcast(
-                    Text.builder(p.getDisplayNameData().displayName().toString()).append(
+                    Text.builder().append(p.getDisplayNameData().displayName().get()).append(
                             Text.builder(" is no longer voting to restart. "
                                     + voters.size() + '/' + Sponge.getServer().getOnlinePlayers().size()
                                     + '(' + ((int) (double) voters.size() / (double) Sponge.getServer().getOnlinePlayers().size() * 100) + "%)")
